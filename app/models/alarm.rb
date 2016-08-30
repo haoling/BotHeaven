@@ -18,7 +18,7 @@ class Alarm < ActiveRecord::Base
 
   # Wake alarm.
   def wake
-    JobDaemon.enqueue(JobDaemons::BotJob.new(bot_id, callback_function, []))
+    JobDaemon.enqueue(JobDaemons::BotJob.new(bot_id, callback_function, [self.name, self.wake_at.to_i]))
     if repeat?
       save
     else
