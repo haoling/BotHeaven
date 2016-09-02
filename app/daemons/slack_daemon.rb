@@ -8,7 +8,7 @@ class SlackDaemon
   def start
     EM.defer do
       begin
-        rtm_client.start
+        rtm_client.start!
       rescue => e
         Rails.logger.error e.backtrace
         sleep 15

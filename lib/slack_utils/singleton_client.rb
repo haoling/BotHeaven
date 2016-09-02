@@ -13,13 +13,13 @@ module SlackUtils
 
     # Initialize singleton client.
     def initialize
-      @client = Slack::Client.new
+      @client = Slack::Web::Client.new
     end
 
     # Get Slack Realtime API Client.
     # @return [Slack::RealTime::Client]
     def rtm_client
-      @rtm_client ||=client.realtime
+      @rtm_client ||= Slack::RealTime::Client.new
     end
 
     # Find Channel ID from name.

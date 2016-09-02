@@ -41,7 +41,9 @@ gem 'eventmachine'
 gem 'inum'
 
 # SlackClient
-gem 'slack-api'
+gem 'slack-ruby-client'
+gem 'eventmachine'
+gem 'faye-websocket'
 
 # Rack
 gem 'puma'
