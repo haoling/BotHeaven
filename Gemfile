@@ -41,7 +41,7 @@ gem 'eventmachine'
 gem 'inum'
 
 # SlackClient
-gem 'slack-ruby-client'
+gem 'slack-ruby-client', :github => 'dblock/slack-ruby-client'
 gem 'eventmachine'
 gem 'faye-websocket'
 
