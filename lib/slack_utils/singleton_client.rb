@@ -76,7 +76,16 @@ module SlackUtils
     # @param [String] icon_emoji Emoji of user.
     # @param [String] text       Message text.
     def send_message(channel_id, name, icon_emoji, text)
-      client.chat_postMessage(username: name, channel: channel_id, text: text, icon_emoji: ":#{icon_emoji}:".squeeze(':'))
+      params = {}
+      if (text.kind_of?(Hash)) then
+        params = text
+      else
+        params[:text] = text
+      end
+      params[:username] = name
+      params[:channel] = channel_id
+      params[:icon_emoji] = ":#{icon_emoji}:".squeeze(':')
+      client.chat_postMessage(params)
     end
 
     private
